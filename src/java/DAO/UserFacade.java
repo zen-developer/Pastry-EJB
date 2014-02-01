@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class UserFacade extends AbstractFacade<User> implements DAO.UserFacadeRemote {
-    @PersistenceContext(unitName = "Cake_EJBPU")
+    @PersistenceContext(unitName = "Pastry-EJBPU")
     private EntityManager em;
 
     @Override

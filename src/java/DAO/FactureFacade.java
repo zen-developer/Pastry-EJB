@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class FactureFacade extends AbstractFacade<Facture> implements DAO.FactureFacadeRemote {
-    @PersistenceContext(unitName = "Cake_EJBPU")
+    @PersistenceContext(unitName = "Pastry-EJBPU")
     private EntityManager em;
 
     @Override

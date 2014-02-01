@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class CarteFacade extends AbstractFacade<Carte> implements CarteFacadeRemote {
-    @PersistenceContext(unitName = "Cake_EJBPU")
+    @PersistenceContext(unitName = "Pastry-EJBPU")
     private EntityManager em;
 
     @Override

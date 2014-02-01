@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class LigneCommandeFacade extends AbstractFacade<LigneCommande> implements DAO.LigneCommandeFacadeRemote {
-    @PersistenceContext(unitName = "Cake_EJBPU")
+    @PersistenceContext(unitName = "Pastry-EJBPU")
     private EntityManager em;
 
     @Override

@@ -5,9 +5,12 @@
 package DAO;
 
 import entities.Produit;
+import java.util.Collection;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -15,7 +18,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class ProduitFacade extends AbstractFacade<Produit> implements DAO.ProduitFacadeRemote {
-    @PersistenceContext(unitName = "Cake_EJBPU")
+    @PersistenceContext(unitName = "Pastry-EJBPU")
     private EntityManager em;
 
     @Override
@@ -25,6 +28,23 @@ public class ProduitFacade extends AbstractFacade<Produit> implements DAO.Produi
 
     public ProduitFacade() {
         super(Produit.class);
+    }
+
+    @Override
+    public Produit find(int id) {
+        return em.find(Produit.class, id);
+    }
+
+    @Override
+    public String sayHello(String name) {
+        return "Hello "+name;
+                
+    }
+    
+    @Override
+    public List<Produit> findAll(){
+        TypedQuery<Produit> query=em.createNamedQuery("SELECT p FROM Produit p", Produit.class);
+        return query.getResultList();
     }
     
 }
