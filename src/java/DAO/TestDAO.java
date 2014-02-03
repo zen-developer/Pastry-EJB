@@ -6,6 +6,9 @@
 
 package DAO;
 
+import entities.Produit;
+import java.util.Collection;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
@@ -24,7 +27,10 @@ public class TestDAO implements TestDAOLocal {
    @PostConstruct
    public void init(){
        System.out.println("++++++++++++++++++++++++++++++++++++++");
-       System.out.println(pfr.find(3));
+       Collection<Produit> liste=pfr.findAllProduits();
+       for(Produit p:liste){
+           System.out.println(p);
+       }
    }
     
 }

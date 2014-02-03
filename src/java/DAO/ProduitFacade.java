@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import entities.Produit;
@@ -10,6 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -18,7 +15,7 @@ import javax.persistence.TypedQuery;
  */
 @Stateless
 public class ProduitFacade extends AbstractFacade<Produit> implements DAO.ProduitFacadeRemote {
-    @PersistenceContext(unitName = "Pastry-EJBPU")
+    @PersistenceContext(name = "Pastry-EJBPU")
     private EntityManager em;
 
     @Override
@@ -31,20 +28,25 @@ public class ProduitFacade extends AbstractFacade<Produit> implements DAO.Produi
     }
 
     @Override
-    public Produit find(int id) {
-        return em.find(Produit.class, id);
+    public Produit find(Object id) {
+        return em.find(  Produit.class, id);
+                
     }
 
+    
+    
     @Override
     public String sayHello(String name) {
         return "Hello "+name;
                 
     }
-    
+
     @Override
-    public List<Produit> findAll(){
-        TypedQuery<Produit> query=em.createNamedQuery("SELECT p FROM Produit p", Produit.class);
-        return query.getResultList();
+    public Collection<Produit> findAllProduits() {
+       Query query=em.createNamedQuery("Produit.findAll");
+        return (Collection<Produit>)query.getResultList();
     }
+    
+    
     
 }
