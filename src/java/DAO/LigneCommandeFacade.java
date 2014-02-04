@@ -26,5 +26,17 @@ public class LigneCommandeFacade extends AbstractFacade<LigneCommande> implement
     public LigneCommandeFacade() {
         super(LigneCommande.class);
     }
+    @Override
+    public void create(LigneCommande ligneCommande){
+        em.persist(ligneCommande);
+    }
+    @Override
+    public void edit(LigneCommande ligneCommande){
+        
+    }
     
+    @Override
+    public void remove(LigneCommande ligneCommande){
+        em.remove(ligneCommande);
+    }
 }

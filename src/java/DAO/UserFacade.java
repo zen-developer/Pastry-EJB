@@ -26,5 +26,8 @@ public class UserFacade extends AbstractFacade<User> implements DAO.UserFacadeRe
     public UserFacade() {
         super(User.class);
     }
-    
+    @Override
+    public User find(int id){
+        return em.find(User.class, id);
+    }
 }
