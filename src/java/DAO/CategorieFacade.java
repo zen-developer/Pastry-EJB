@@ -5,6 +5,8 @@
 package DAO;
 
 import entities.Categorie;
+import entities.Produit;
+import java.util.Collection;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,5 +28,12 @@ public class CategorieFacade extends AbstractFacade<Categorie> implements DAO.Ca
     public CategorieFacade() {
         super(Categorie.class);
     }
+
+    @Override
+    public Categorie find(int id) {
+        return em.find(Categorie.class, id);
+    }
+
+   
     
 }

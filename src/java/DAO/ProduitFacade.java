@@ -1,5 +1,6 @@
 package DAO;
 
+import entities.Categorie;
 import entities.Produit;
 import java.util.Collection;
 import java.util.List;
@@ -32,8 +33,12 @@ public class ProduitFacade extends AbstractFacade<Produit> implements DAO.Produi
         return em.find(  Produit.class, id);
                 
     }
-
     
+    @Override
+    public void create(Produit produit){
+        em.persist(produit);
+    }
+
     
     @Override
     public String sayHello(String name) {
@@ -44,9 +49,9 @@ public class ProduitFacade extends AbstractFacade<Produit> implements DAO.Produi
     @Override
     public Collection<Produit> findAllProduits() {
        Query query=em.createNamedQuery("Produit.findAll");
-        return (Collection<Produit>)query.getResultList();
+       return (Collection<Produit>)query.getResultList();
     }
-    
-    
+
+  
     
 }
